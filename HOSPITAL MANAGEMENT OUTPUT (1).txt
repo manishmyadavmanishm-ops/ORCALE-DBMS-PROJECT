@@ -1,0 +1,378 @@
+PATIENT_ID PATIENT_NAME 		  PATIENT_AGE PATIENT_EMAIL_ID					 PATIENT_PHONE_NUMBER PATIENT_GENDER
+---------- ------------------------------ ----------- -------------------------------------------------- -------------------- ----------------------------------------
+	 1 MANISH				   21 manishmyadavmanishm@gmail.com			 8095081666	      MALE
+	 2 Rahul				   25 rahul@gmail.com					 9876543210	      MALE
+	 3 Priya				   22 priya@gmail.com					 9876543211	      FEMALE
+	 4 Arjun				   30 arjun@gmail.com					 9876543212	      MALE
+	 5 Sneha				   28 sneha@gmail.com					 9876543213	      FEMALE
+	 6 Kiran				   35 kiran@gmail.com					 9876543214	      MALE
+	 7 Anjali				   24 anjali@gmail.com					 9876543215	      FEMALE
+	 8 Ravi 				   40 ravi@gmail.com					 9876543216	      MALE
+	 9 Pooja				   27 pooja@gmail.com					 9876543217	      FEMALE
+	10 Vikram				   33 vikram@gmail.com					 9876543218	      MALE
+
+ DOCTOR_ID DOCTOR_NAME				    DOCTOR_SPELIZATION			     DOCTOR_GENDER
+---------- ---------------------------------------- ---------------------------------------- --------------------
+       101 Dr. Rajesh				    Cardiologist			     MALE
+       102 Dr. Arjun				    Cardiologist			     MALE
+       103 Dr. Priya				    Cardiologist			     FEMALE
+       104 Dr. Ravi				    Cardiologist			     MALE
+       105 Dr. Sneha				    Dermatologist			     FEMALE
+       106 Dr. Kiran				    Neurologist 			     MALE
+       107 Dr. Anjali				    Pediatrician			     FEMALE
+       108 Dr. Vikram				    Orthopedic				     MALE
+       109 Dr. Meera				    Gynecologist			     FEMALE
+       110 Dr. Pooja				    ENT Specialist			     FEMALE
+
+PATIENT_ID BILLING_ID TOTAL_BILLING_AMMOUNT APPOINTEMENT_ID MEDICAL_CHARGE
+---------- ---------- --------------------- --------------- --------------
+	 1	 2001		       1500	       1001	       500
+	 2	 2002		       1800	       1002	       600
+	 3	 2003		       2100	       1003	       700
+	 4	 2004		       2400	       1004	       800
+	 5	 2005		       2600	       1005	       900
+	 6	 2006		       2800	       1006	      1000
+	 7	 2007		       3000	       1007	      1100
+	 8	 2008		       3300	       1008	      1200
+	 9	 2009		       3600	       1009	      1300
+	10	 2010		       4000	       1010	      1500
+
+PATIENT_ID
+----------
+PATIENT_NAME
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+PATIENT_GENDER
+----------------------------------------
+	 6
+Kiran
+MALE
+
+
+PATIENT_ID
+----------
+PATIENT_NAME
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+PATIENT_GENDER
+----------------------------------------
+	 7
+Anjali
+FEMALE
+
+
+PATIENT_NAME
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+PATIENT_AGE
+-----------
+Kiran
+	 35
+
+Ravi
+	 40
+
+
+ DOCTOR_ID TOTAL_MAX_SALARY
+---------- ----------------
+       110	      90000
+       109	      83000
+       108	      80000
+       107	      76000
+       106	      72000
+       105	      69000
+       104	      66000
+       103	      62000
+
+PATIENT_ID PATIENT_AGE
+---------- -----------
+PATIENT_NAME
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	 2	    25
+Rahul
+
+	 3	    22
+Priya
+
+	 4	    30
+Arjun
+
+	 5	    28
+Sneha
+
+	 6	    35
+Kiran
+
+	 7	    24
+Anjali
+
+	 8	    40
+Ravi
+
+	 9	    27
+Pooja
+
+	10	    33
+Vikram
+
+
+TOTAL_SALARY
+------------
+      711000
+
+DOCTOR_SPELIZATION
+----------------------------------------
+Cardiologist
+Dermatologist
+Neurologist
+Pediatrician
+Orthopedic
+Gynecologist
+ENT Specialist
+
+NO_OF_PATIENT
+-------------
+	   10
+INSERT INTO PATIENT VALUES (11, NULL, 25,'antorojas@gmail.com','9164331739','MALE')
+                                *
+ERROR at line 1:
+ORA-01400: cannot insert NULL into ("sandbox_user"."PATIENT"."PATIENT_NAME")
+
+
+INSERT INTO PATIENT VALUES (12 ,NULL, 18,'rajesh123@gmail.com','9620692858','MALE')
+                                *
+ERROR at line 1:
+ORA-01400: cannot insert NULL into ("sandbox_user"."PATIENT"."PATIENT_NAME")
+
+
+INSERT INTO PATIENT
+*
+ERROR at line 1:
+ORA-00001: unique constraint (sandbox_user.UNI_CF) violated on table sandbox_user.PATIENT columns (PATIENT_EMAIL_ID)
+ORA-03301: (ORA-00001 details) row with column values (PATIENT_EMAIL_ID:'arjun@gmail.com') already exists
+
+
+INSERT INTO PATIENT
+*
+ERROR at line 1:
+ORA-00001: unique constraint (sandbox_user.UNI_CF) violated on table sandbox_user.PATIENT columns (PATIENT_EMAIL_ID)
+ORA-03301: (ORA-00001 details) row with column values (PATIENT_EMAIL_ID:'sneha@gmail.com') already exists
+
+
+INSERT INTO PATIENT
+*
+ERROR at line 1:
+ORA-00001: unique constraint (sandbox_user.SYS_C008858) violated on table sandbox_user.PATIENT columns (PATIENT_ID)
+ORA-03301: (ORA-00001 details) row with column values (PATIENT_ID:3) already exists
+
+
+INSERT INTO PATIENT
+*
+ERROR at line 1:
+ORA-02290: check constraint (sandbox_user.CHEC_UF) violated
+
+
+INSERT INTO DOCTOR VALUES(111, 'Dr.RAM', 'Cardiologist', 'Male')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (sandbox_user.PRE_KEY) violated on table sandbox_user.DOCTOR columns (DOCTOR_ID)
+ORA-03301: (ORA-00001 details) row with column values (DOCTOR_ID:111) already exists
+
+
+INSERT INTO DOCTOR VALUES(111, 'Dr.RAM', 'Cardiologist', 'Male')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (sandbox_user.PRE_KEY) violated on table sandbox_user.DOCTOR columns (DOCTOR_ID)
+ORA-03301: (ORA-00001 details) row with column values (DOCTOR_ID:111) already exists
+
+
+
+ DOCTOR_ID TOTAL_SALARY
+---------- ------------
+       110	  90000
+       109	  83000
+       108	  80000
+       107	  76000
+
+PATIENT_ID
+----------
+PATIENT_NAME
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	 1
+MANISH
+
+	 2
+Rahul
+
+	 3
+Priya
+
+	 4
+Arjun
+
+	 5
+Sneha
+
+	 6
+Kiran
+
+	 7
+Anjali
+
+	 8
+Ravi
+
+	 9
+Pooja
+
+	10
+Vikram
+
+
+ DOCTOR_ID DOCTOR_NAME
+---------- ----------------------------------------
+       101 Dr. Rajesh
+       102 Dr. Arjun
+       103 Dr. Priya
+       104 Dr. Ravi
+       105 Dr. Sneha
+       106 Dr. Kiran
+       107 Dr. Anjali
+       108 Dr. Vikram
+       109 Dr. Meera
+       110 Dr. Pooja
+       111 Dr.RAM
+       112 Dr. VIKRAM
+
+ DOCTOR_ID DOCTOR_NAME				    TOTAL_SALARY
+---------- ---------------------------------------- ------------
+       101 Dr. Rajesh					   55000
+       102 Dr. Arjun					   58000
+       103 Dr. Priya					   62000
+       104 Dr. Ravi					   66000
+       105 Dr. Sneha					   70000
+       106 Dr. Kiran					   72000
+       107 Dr. Anjali					   76000
+       108 Dr. Vikram					   80000
+       109 Dr. Meera					   83000
+       110 Dr. Pooja					   90000
+       111 Dr.RAM
+       112 Dr. VIKRAM
+
+PATIENT_ID
+----------
+PATIENT_NAME
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+PATIENT_AGE PATIENT_EMAIL_ID				       PATIENT_PHONE_NUMBER PATIENT_GENDER
+----------- -------------------------------------------------- -------------------- ----------------------------------------
+	 1
+MANISH
+	 21 manishmyadavmanishm@gmail.com		       8095081666	    MALE
+
+ON PATIENT(PATIENT_EMAIL_ID)
+           *
+ERROR at line 2:
+ORA-01408: such column list already indexed
+
+
+
+PATIENT_ID
+----------
+PATIENT_NAME
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+PATIENT_AGE PATIENT_EMAIL_ID				       PATIENT_PHONE_NUMBER PATIENT_GENDER
+----------- -------------------------------------------------- -------------------- ----------------------------------------
+	 1
+MANISH
+	 21 manishmyadavmanishm@gmail.com		       8095081666	    MALE
+
+
+PATIENT_ID
+----------
+PATIENT_NAME
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+PATIENT_AGE PATIENT_EMAIL_ID				       PATIENT_PHONE_NUMBER PATIENT_GENDER
+----------- -------------------------------------------------- -------------------- ----------------------------------------
+	10
+Vikram
+	 33 vikram@gmail.com				       9876543218	    MALE
+
+
+ DOCTOR_ID DOCTOR_SPELIZATION
+---------- ----------------------------------------
+       103 Cardiologist
+
+PATIENT_ID
+----------
+PATIENT_NAME
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	 6
+Kiran
+
+
+PATIENT_ID
+----------
+PATIENT_NAME
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+	 1
+MANISH
+
+	 2
+Rahul
+
+	 3
+Priya
+
+	 4
+Arjun
+
+	 5
+Sneha
+
+	 6
+Kiran
+
+	 7
+Anjali
+
+	 8
+Ravi
+
+	 9
+Pooja
+
+	10
+Vikram
+
+
+ DOCTOR_ID TOTAL_SALARY
+---------- ------------
+       104	  66000
+       105	  70000
+       106	  72000
+       107	  76000
+       108	  80000
+       109	  83000
+       110	  90000
+SELECT * FROM SALARY_DATA
+              *
+ERROR at line 1:
+ORA-00942: table or view "sandbox_user"."SALARY_DATA" does not exist
+
+
+
+USER_NAME	     ACTION_PERFORMED	  ACTION_TIME
+-------------------- -------------------- ------------------
+USER		     INSERT		  19-JUN-26
+
+PATIENT_ID  DOCTOR_ID APPOINTEMENT_ID APPOINTEMENT_DATE    APPOINTEMENT_TIME
+---------- ---------- --------------- -------------------- --------------------
+	 1	  101		 1001 08-06-2026	   09:00 AM
+	 2	  102		 1002 09-06-2026	   10:00 AM
+	 3	  103		 1003 10-06-2026	   11:00 AM
+	 4	  104		 1004 11-06-2026	   12:00 PM
+	 5	  105		 1005 12-06-2026	   02:00 PM
+	 6	  106		 1006 13-06-2026	   03:00 PM
+	 7	  107		 1007 14-06-2026	   09:30 AM
+	 8	  108		 1008 15-06-2026	   10:30 AM
+	 9	  109		 1009 16-06-2026	   11:30 AM
+	10	  110		 1010 17-06-2026	   01:00 PM
+	 1	  101		10001 20-08-2025	   12:00 AM
+Ready
